@@ -2,7 +2,7 @@
 import json
 import codecs
 data = {}
-f = codecs.open('./test.txt', 'r', 'utf-8')
+f = codecs.open('./province-city.txt', 'r', 'utf-8')
 lines = f.readlines()
 f.close()
 output = codecs.open('./output.json', 'w', 'utf-8')
@@ -25,10 +25,10 @@ for line in lines:
         else:
             print 'not valid line'
 
-for k,v in data.items():
-    print k,v['code']
-output.write(json.dumps(data, indent=4, sort_keys=True))
+output.write(json.dumps(data, indent=4, sort_keys=True).encode('gbk'))
 output.close()
+
+# nf = codecs.open('./output.json', 'r', 'utf-8')
 
 # data = {
 #     'name': 'good'
